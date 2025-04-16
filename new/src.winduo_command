@@ -1,0 +1,52 @@
+# src.winduo_command
+
+def submit_form():
+    """提交表单"""
+    # 获取姓名和年龄
+    name = usf.get_entry_value(interpreter, 0)
+    age = usf.get_entry_value(interpreter, 1)
+
+    # 获取性别
+    gender = interpreter.widgets["gender"].get()
+    if not gender:
+        gender = "未选择"
+
+    # 获取兴趣爱好
+    hobbies = []
+    for hobby in ["编程", "阅读", "运动"]:
+        if interpreter.widgets[hobby].get():
+            hobbies.append(hobby)
+    hobbies_str = ", ".join(hobbies) if hobbies else "无"
+
+    # 获取城市
+    city = interpreter.widgets["dropdown"].get()
+
+    # 获取备注
+    notes = usf.get_text_value(interpreter)
+
+    # 显示提交结果
+    message = (
+        f"姓名: {name}\n"
+        f"年龄: {age}\n"
+        f"性别: {gender}\n"
+        f"兴趣爱好: {hobbies_str}\n"
+        f"城市: {city}\n"
+        f"备注: {notes}"
+    )
+    usf.show_message("提交成功", message)
+
+
+def clear_inputs():
+    """清空所有输入"""
+    usf.clear_entries(interpreter)  # 清空所有单行文本框
+    usf.set_text_value(interpreter, "")  # 清空多行文本框
+
+    # 清空单选按钮
+    interpreter.widgets["gender"].set("")
+
+    # 清空复选框
+    for hobby in ["编程", "阅读", "运动"]:
+        interpreter.widgets[hobby].set(False)
+
+    # 清空下拉菜单
+    interpreter.widgets["dropdown"].set("")

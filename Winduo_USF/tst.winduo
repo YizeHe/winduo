@@ -1,0 +1,3 @@
+script = src.winduo_command
+main "示例窗口" 1024*768
+button "测试" 50*60 action=otp

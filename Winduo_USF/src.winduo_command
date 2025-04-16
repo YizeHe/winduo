@@ -1,0 +1,8 @@
+from usf2 import USF
+
+usf = USF()
+
+def otp():
+    a = "hello"
+    usf.test_print(a)
+	

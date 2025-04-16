@@ -1,0 +1,20 @@
+script = src.winduo_command
+main "复杂示例窗口" 1024*768
+label "欢迎使用复杂示例界面" 50*20
+button "提交表单" 50*60 action=submit_form
+button "清空输入" 200*60 action=clear_inputs
+label "姓名：" 50*120
+entry 120*120
+label "年龄：" 50*160
+entry 120*160
+label "性别：" 50*200
+radiobutton "男" 120*200 group=gender value=male
+radiobutton "女" 180*200 group=gender value=female
+label "兴趣爱好：" 50*240
+checkbox "编程" 120*240
+checkbox "阅读" 120*280
+checkbox "运动" 120*320
+label "选择城市：" 50*360
+dropdown 120*360 北京 上海 广州 深圳
+label "备注：" 50*400
+text 120*400 60 10
